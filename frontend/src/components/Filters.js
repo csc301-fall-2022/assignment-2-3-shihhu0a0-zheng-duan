@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { CartState } from "../context/Context";
 import Rating from "./Rating";

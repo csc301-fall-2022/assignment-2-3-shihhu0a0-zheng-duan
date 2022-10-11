@@ -6,23 +6,33 @@ import Home from './components/Home';
 import Cart from './components/Cart';
 import addReview from './components/addReview';
 // import pic from './components/normal.jpg';
-import Login from './components/login';
+import Login from './components/Login';
+import Review from './components/Review';
+
 
 function App(){
+
+
   return (
     <BrowserRouter>
         <div className="App">
           <Routes>
-            <Route exact path='/' element={<Home/>}/>
+            <Route path='/' element={<Home/>}/>
           </Routes>
           <Routes>
-            <Route exact path='/login' element={<Login/>}/>
+            <Route path='/login' element={<Login/>}/>
           </Routes>
           <Routes>
-            <Route exact path='/home' element={<Home/>}/>
+            <Route path='/home' element={<Home/>}/>
           </Routes>
           <Routes>
-            <Route exact path='/cart' element={<Cart/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+          </Routes>
+          <Routes>
+            <Route 
+              path="/products/:id"
+              element={<Review />}
+            />
           </Routes>
         </div>
         

@@ -1,22 +1,33 @@
 export const cartReducer= (state, action) => {
+    let newState;
     switch (action.type) {
         case "ADD_TO_CART":
-            return {...state, cart:[...state.cart, {...action.payload, qty:1}]};
+            newState = {...state, cart:[...state.cart, {...action.payload, qty:1}]};
+            break;
         case "REMOVE_FROM_CART":
-            return {
+            newState = {
                 ...state,
-                cart: state.cart.filter((c) => c.id !== action.payload.id),
+                cart: state.cart.filter((c) => c._id !== action.payload._id),
             };
+            break;
         case "CHANGE_CART_QTY":
-            return {
+            newState = {
                 ...state,
                 cart: state.cart.filter((c) =>
-                  c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
+                  c._id === action.payload._id ? (c.qty = action.payload.qty) : c.qty
                 ),
               };
+              break;
+        // case "Retrieve_From_LcoalStorage":
+        //     newState = {
+        //       ...state,
+        //       cart: action.payload,
+        //     };
+        //     break;
         default:
-            break;
+            throw new Error(`${action.type} action is not supported`);
     }
+    return newState;
 };
 
 

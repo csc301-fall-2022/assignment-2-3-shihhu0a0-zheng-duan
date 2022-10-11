@@ -17,7 +17,7 @@ const Header = () => {
     <Navbar bg="dark" varient="dark" style={{height: 80}}>
         <Container>
           <Navbar.Brand>
-            <Link to='/' exact>
+            <Link to='/'>
               <div className='titleName'>
                 Shopping Cart
               </div>
