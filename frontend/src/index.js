@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from "react-dom";
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
 import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Context from './context/Context';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <Context>
       <App />
     </Context>
-  </React.StrictMode>
+  </StrictMode>
 );
 

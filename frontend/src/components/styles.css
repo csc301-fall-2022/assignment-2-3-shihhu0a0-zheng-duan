@@ -76,6 +76,12 @@
   .summary {
     width: 30%;
   }
+
+  .card-img {
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+  }
   
   /* Media Queries */
   @media (max-width: 771px) {

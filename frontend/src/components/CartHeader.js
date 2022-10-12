@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import {Badge, Button, Nav, Dropdown, Container, FormControl, Navbar} from 'react-bootstrap';
-import {FaShoppingCart} from 'react-icons/fa';
-import {AiFillDelete} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
 import { CartState } from '../context/Context';
 
@@ -17,7 +15,7 @@ const CartHeader = () => {
     <Navbar bg="dark" varient="dark" style={{height: 80}}>
         <Container>
           <Navbar.Brand>
-            <Link to='/' exact>
+            <Link to='/'>
               <div className='titleName'>
                 Shopping Cart
               </div>
