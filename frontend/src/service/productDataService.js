@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const http =  axios.create({
-  baseURL: "http://localhost:5000/api/v1",
+  baseURL: "http://localhost:5001/api/v1",
   timeout: 1000,
   headers: {
     "Content-type": "application/json;charset=utf-8"
@@ -23,7 +23,7 @@ class ProductDataService {
     } 
 
     getTotalPrice(region, price, currency) {
-      return axios.post("http://localhost:5000/api/v1/products/cal", {
+      return axios.post("http://localhost:5001/api/v1/products/cal", {
         region: region, 
         price: price,
         currency: currency
