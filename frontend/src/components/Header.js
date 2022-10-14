@@ -3,24 +3,29 @@ import {Badge, Button, Nav, Dropdown, Container, FormControl, Navbar} from 'reac
 import {FaShoppingCart} from 'react-icons/fa';
 import {AiFillDelete} from 'react-icons/ai';
 import {Link} from 'react-router-dom';
-import { CartState } from '../context/Context';
+import { CartState, ThemeState } from '../context/Context';
+import ReactSwitch from "react-switch";
+
 
 const Header = () => {
 
-  const [user, setUser] = useState(null);
-  async function login(user = null) {setUser(user)};
-  async function logout() {setUser(null)};
-
-  const {state: {cart}, dispatch, productDispatch} = CartState();
+  const {user, setUser, state: {cart}, dispatch, productDispatch} = CartState();
+  const {theme, toggleTheme} = ThemeState();
 
   return (
     <Navbar bg="dark" varient="dark" style={{height: 80}}>
         <Container>
           <Navbar.Brand>
             <Link to='/'>
-              <div className='titleName'>
-                Shopping Cart
-              </div>
+              {user? (
+                <div className='titleName'>
+                  {user.user_name}
+                </div>
+              ):(
+                <div className='titleName'>
+                  Shopping Cart
+                </div>
+              )}
             </Link>
           </Navbar.Brand>
           <Navbar.Text className='search'>
@@ -37,7 +42,8 @@ const Header = () => {
             />
           </Navbar.Text>
           <Nav>
-            <Dropdown alignRight>
+            {/* <Dropdown alignRight> */}
+            <Dropdown>
             <Dropdown.Toggle variant="success">
                 <FaShoppingCart color="white" fontSize="25px"/>
                 <Badge>{cart.length}</Badge>
@@ -81,16 +87,21 @@ const Header = () => {
             </Dropdown.Menu>
             </Dropdown>
             { user ? (
-              <Button style={{ width: "100%", margin: "0", marginLeft: "50%" }} onClick={logout}>
-                Logout {user.name}
-              </Button>
+              <Link to={"/"} >
+                <Button style={{ width: "100%", margin: "0", marginLeft: "50%" }} onClick={() => {setUser(null)}}>
+                  Logout
+                </Button>
+              </Link>
             ) : (
               <Link to={"/login"} >
                   <Button style={{ width: "100%", margin: "0", marginLeft: "50%" }}>
                   Login
                   </Button>
               </Link>
-            )}      
+            )} 
+          <div className="switch">
+            <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+          </div>     
           </Nav>
         </Container>
     </Navbar>

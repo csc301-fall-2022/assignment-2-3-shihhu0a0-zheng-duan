@@ -83,6 +83,31 @@
     height: 30vh;
   }
   
+  .singInForm {
+    background-color: #f3ebf6;
+  }
+
+  .main {
+    background-color: white;
+  }
+
+  .text {
+    font-size: small;
+    text-align: center;
+  }
+
+  .single_select {
+    text-align: center;
+    display: flex;
+
+  }
+  .left_select {
+    flex: 35%;
+  }
+  .right_select {
+    flex: 65%;
+  }
+
   /* Media Queries */
   @media (max-width: 771px) {
     .filters {
