@@ -6,11 +6,14 @@ import { CartState } from '../context/Context'
 import CartHeader from './CartHeader';
 import Rating from './Rating';
 import productDataService from '../service/productDataService';
+import { ThemeState } from '../context/Context';
 // import Axios from 'axios';
 
 
 const Cart = () => {
+  const {theme, toggleTheme} = ThemeState();
   const {state:{cart}, dispatch} = CartState();
+
   const [total, setTotal] = useState(0);
   useEffect(() => {
     setTotal(cart.reduce((acc, curr) => acc+Number(curr.price)*(curr.qty), 0))
@@ -47,7 +50,7 @@ const Cart = () => {
   return (
     <div>
       <CartHeader/>
-      <div className='home'>
+      <div className='home' id={theme}>
         <div className='productContainer'>
           <ListGroup>
             {cart.map((prod) => (
@@ -133,7 +136,9 @@ const Cart = () => {
                 </div>
               </div>
             </div><br/>
-            <Button type='button' disabled={cart.length === 0}>Check Out</Button>
+            <Button type='button' disabled={cart.length === 0} 
+              onClick={() => {dispatch({type: "RESET"})} 
+            }>Check Out</Button>
         </div>
       </div>
     </div>

@@ -4,9 +4,12 @@ import SingleProduct from './SingleProduct';
 import Filters from './Filters';
 import './styles.css';
 import Header from './Header';
+import { ThemeState } from '../context/Context';
 
 
 const Home = () => {
+  const {theme, toggleTheme} = ThemeState();
+
   const {state:{products}, productState: {byStock, byFastDelivery, sort, byRating, searchQuery},} = CartState()
 
   const transformProducts = () => {
@@ -35,7 +38,7 @@ const Home = () => {
   return (
   <div>
     <Header/>
-    <div className='home'>
+    <div className='home' id={theme}>
         <Filters />
         <div className='productContainer'>
           {transformProducts().map((prod) => {

@@ -1,15 +1,17 @@
 import { Button, Form } from "react-bootstrap";
-import { CartState } from "../context/Context";
+import { CartState, ThemeState } from "../context/Context";
 import Rating from "./Rating";
 
 
 const Filters = () => {
+    
+    const {theme, toggleTheme} = ThemeState();
 
     const {productState: {byStock, byFastDelivery, sort, byRating}, 
         productDispatch} = CartState();
 
   return (
-    <div className="filters">
+    <div className="filters" id={theme}>
       <span className="title">Filter Products</span>
       <span>
         <Form.Check

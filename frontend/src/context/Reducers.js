@@ -18,12 +18,12 @@ export const cartReducer= (state, action) => {
                 ),
               };
               break;
-        // case "Retrieve_From_LcoalStorage":
-        //     newState = {
-        //       ...state,
-        //       cart: action.payload,
-        //     };
-        //     break;
+        case "RESET":
+              console.log("lllalalalalla")
+            newState = {
+              ...state, cart: [],
+            };
+            break;
         default:
             throw new Error(`${action.type} action is not supported`);
     }

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer, useState, useEffect } from 'react'
 import { faker } from '@faker-js/faker';
-import {cartReducer} from './Reducers';
-import { productReducer } from './Reducers';
+import {cartReducer, productReducer} from './Reducers';
+
 import pic_normal from "../image/normal.jpg";
 import pic_better from "../image/better.jpg";
 import pic_fancy from "../image/fancy.jpg";
@@ -13,14 +13,29 @@ import pic_art from "../image/art.jpg";
 import pic_shanghai from "../image/shanghai.jpg";
 import pic_default from "../image/IMG_1017 copy.jpg";
 import ProductDataService from "../service/productDataService";
-
-
-const Cart = createContext();
 faker.seed(99);
+
+
+const ThemeContext = createContext(null);
+const Cart = createContext();
 
 const Retrieve_From_LcoalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
 
 const Context = ({children}) => {
+
+    const [theme, setTheme] = useState("dark");
+
+    const toggleTheme = () => {
+      setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    };
+
+    const initialUserState = {
+      user_name: "",
+      password: "",
+      type: "",
+    };
+    const [user, setUser] = useState(null);
+
   
     const [products, setProducts] = useState([]);
 
@@ -73,7 +88,11 @@ const Context = ({children}) => {
     })
 
   return (
-    <Cart.Provider value={{state, dispatch, productState, productDispatch}}>{children}</Cart.Provider>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <Cart.Provider value={{user, setUser, state, dispatch, productState, productDispatch}}>
+        {children}
+      </Cart.Provider>
+    </ThemeContext.Provider>
   )
 }
 
@@ -81,4 +100,8 @@ export default Context
 
 export const CartState = () => {
     return useContext(Cart);
+}
+
+export const ThemeState = () => {
+  return useContext(ThemeContext);
 }

@@ -1,24 +1,29 @@
 import React, {useState} from 'react';
 import {Badge, Button, Nav, Dropdown, Container, FormControl, Navbar} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { CartState } from '../context/Context';
+import { CartState, ThemeState } from '../context/Context';
+import ReactSwitch from "react-switch";
 
 const CartHeader = () => {
 
-  const [user, setUser] = useState(null);
-  async function login(user = null) {setUser(user)};
-  async function logout() {setUser(null)};
-
-  const {state: {cart}, dispatch, productDispatch} = CartState();
+  const {user, setUser, state: {cart}, dispatch, productDispatch} = CartState();
+  const {theme, toggleTheme} = ThemeState();
+  
 
   return (
     <Navbar bg="dark" varient="dark" style={{height: 80}}>
         <Container>
           <Navbar.Brand>
             <Link to='/'>
-              <div className='titleName'>
-                Shopping Cart
-              </div>
+              {user? (
+                  <div className='titleName'>
+                    {user.user_name}
+                  </div>
+                ):(
+                  <div className='titleName'>
+                    Shopping Cart
+                  </div>
+                )}
             </Link>
           </Navbar.Brand>
           
@@ -29,18 +34,23 @@ const CartHeader = () => {
                 </Button>
             </Link>
             { user ? (
-                <Button style={{ width: "100%", margin: "0", marginLeft: "50%" }} onClick={logout}>
-                  Logout {user.name}
-                </Button>
+                <Link to={"/"} >
+                  <Button style={{ width: "100%", margin: "0", marginLeft: "10%" }} onClick={() => {setUser(null)}}>
+                    Logout
+                  </Button>
+                </Link>
               ) : (
                 <Link to={"/login"} >
-                    <Button style={{ width: "100%", margin: "0", marginLeft: "50%"}}>
+                    <Button style={{ width: "100%", margin: "0", marginLeft: "10%"}}>
                     Login
                     </Button>
                 </Link>
-              )}   
+              )}    
           </Nav>
         </Container>
+        <div className="switch_cart">
+          <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
+        </div> 
     </Navbar>
   )
 }

@@ -21,7 +21,7 @@ const SingleProduct = ({prod}) => {
         <Card.Body>
           <Card.Title>{prod.name} -- {prod.type}</Card.Title>
           <Card.Subtitle style={{paddingBottom:10}}>
-            <span>人民币: {prod.price}</span>      {/* .split('.')[0] */}
+            <span>Chinese Yuan: {prod.price}</span>      {/* .split('.')[0] */}
             {prod.fastDelivery ? (
                 <div>Fast Delivery</div>
             ):(

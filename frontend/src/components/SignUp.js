@@ -17,6 +17,7 @@ const Login = () => {
   const initialSignInState = {
     user_name: "",
     password: "",
+    instructor_name: "",
   };
   const [signInState, setsignInState] = useState(initialSignInState)
 
@@ -27,39 +28,51 @@ const Login = () => {
   const navigate = useNavigate();
   const signIn = async () => {
     let flag = false;
-    await productDataService.signInUser(signInState)
+    await productDataService.signUpNewUser(signInState)
       .then((response) => {
         setUser(response.data);
         flag = true;
         navigate('/');
       })
       .catch(e => {console.log(e)})
-      if(!flag) alert("Incorrect Password")
+      if(!flag) alert("User exists!")
   }
 
 
   return (
     <div className="singInForm">
-      <div className='main_login'>
+      <div className='main'>
         <form className="form1">
-          <br/>
+        <div className='single_select'>
+          <div className='left_select'>
+              <input type="radio" name='user'/>
+              I'm TA
+          </div>
+          <div className='right_select'>
+              <input type="radio" name='user'/>
+              I'm friend of Zheng Duan
+          </div>
+        </div><br/><br/>
           <input id='user_name' required 
             className="username" type="text" placeholder="Username" 
             onChange={handleInputChange} name="user_name" value={signInState.use_name}/>
           <input id='password' required 
             className="password" type="password" placeholder="Password" 
             onChange={handleInputChange} name="password" value={signInState.password}/>
+          <input id='instructor_name' required 
+            className="username" type="password" placeholder="Who is our Instructor?" 
+            onChange={handleInputChange} name="instructor_name" value={signInState.instructor_name}/>
+          <div className='text'>
+            <b>Note:</b><br/>
+            Only those who answer this question correctly <br/>
+            will be recognized as TA. <br/>
+            My friends <b>cannot</b> add reviews. <br/>
+          </div>
           <br/><br/><br/>
           <a className="submit" onClick={signIn} align="center">
-            Sign in
+            Sign up
           </a>
           <br/><br/>
-          <div className="forgot" align="center">
-            <a onClick={() => {navigate('/signup')}}>Don't have an account? Sign up!</a>
-          </div>
-          <div className="forgot" align="center">
-            <a onClick={() => {alert("So Sad   :))))) 哈哈哈哈哈")}}>Forgot Password? </a>
-          </div>
         </form>
       </div>
          {/* <input type="text" placeholder="Name.." onChange={(e) => {setName(e.target.value)}} />
