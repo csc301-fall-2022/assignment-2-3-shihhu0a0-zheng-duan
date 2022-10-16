@@ -31,19 +31,19 @@ class ProductDataService {
     }
 
     signUpNewUser(data) {
-      return axios.post("http://localhost:5000/api/v1/products/user", data);
+      return axios.post("http://localhost:5001/api/v1/products/user", data);
     }
 
     signInUser(data) {
-      return axios.post("http://localhost:5000/api/v1/products/name", data);
+      return axios.post("http://localhost:5001/api/v1/products/name", data);
     }
   
     createReview(data) {
-      return axios.post("http://localhost:5000/api/v1/products/review", data);
+      return axios.post("http://localhost:5001/api/v1/products/review", data);
     }
 
     deleteReview(id, userId) {
-      return  axios.delete("http://localhost:5000/api/v1/products/review", {data:{id: id, user_id: userId}});
+      return  axios.delete("http://localhost:5001/api/v1/products/review", {data:{id: id, user_id: userId}});
     }
   
     updateReview(data) {
