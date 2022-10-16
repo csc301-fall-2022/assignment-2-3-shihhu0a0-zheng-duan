@@ -4,6 +4,11 @@
 https://thriving-baklava-1e7330.netlify.app/
 
 ## Instructions to set up local environment
+1. git clone the repo.
+2. cd into frontend backend folder separately.
+3. for both folder, first npm install, then npm start
+4. the server will run at localhost 5001. can change it in .env file.
+
 ## Report
 ### Web or mobile application
 We chose to build a web application simply because both of us have no experience with building a mobile application but we already have some basic knowledge around web development technologies such as HTML, CSS and JavaScript. 
