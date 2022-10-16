@@ -1,4 +1,9 @@
 # assignment-2-3-shihhu0a0-zheng-duan
+
+## Instructions to view deployed application
+https://thriving-baklava-1e7330.netlify.app/
+
+## Instructions to set up local environment
 ## Report
 ### Web or mobile application
 We chose to build a web application simply because both of us have no experience with building a mobile application but we already have some basic knowledge around web development technologies such as HTML, CSS and JavaScript. 
