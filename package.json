@@ -1,0 +1,37 @@
+{
+  "name": "assignment-2-3-shihhu0a0-zheng-duan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "presets": [
+    "@babel/preset-env"
+  ],
+  "devDependencies": {    
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
+},
+  "scripts": {
+    "test": "npm install && ./node_modules/.bin/mocha --require @babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc301-fall-2022/assignment-2-3-shihhu0a0-zheng-duan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc301-fall-2022/assignment-2-3-shihhu0a0-zheng-duan/issues"
+  },
+  "homepage": "https://github.com/csc301-fall-2022/assignment-2-3-shihhu0a0-zheng-duan#readme"
+}
