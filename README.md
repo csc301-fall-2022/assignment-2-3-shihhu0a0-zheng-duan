@@ -7,11 +7,11 @@ https://thriving-baklava-1e7330.netlify.app/
 
 https://user-images.githubusercontent.com/79493876/196084242-28f915d3-5537-4b5b-bb0d-e11a81f736bd.mp4
 
-### Setting up a local copy of the application
+### Setting up to run the application locally
 1. git clone the repo.
-2. cd into frontend and backend folder separately.
-3. For both folder, first do npm install, then npm start
-4. The server will run on http://localhost:5001.
+2. cd into backend, run npm start
+3. In another terminal window, cd into frontend, run npm start
+4. The server will run on http://localhost:3000. If port 3000 is already in use, it will prompt you to connect to another port. Simply type y.
 
 #### Running test locally
 The test infrastructure for the web application is set up using mocha and chai. The tests files are in the directory /test.
