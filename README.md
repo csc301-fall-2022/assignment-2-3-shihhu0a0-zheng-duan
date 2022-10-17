@@ -1,5 +1,5 @@
 # assignment-2-3-shihhu0a0-zheng-duan
-## Instructions
+## Instructions for the application
 ### URL of deployed application
 https://thriving-baklava-1e7330.netlify.app/
 
@@ -9,9 +9,10 @@ https://user-images.githubusercontent.com/79493876/196084242-28f915d3-5537-4b5b-
 
 ### Setting up to run the application locally
 1. git clone the repo.
-2. cd into backend, run npm start
-3. In another terminal window, cd into frontend, run npm start
-4. The server will run on http://localhost:3000. If port 3000 is already in use, it will prompt you to connect to another port. Simply type y.
+2. cd into backend directory. First run npm install, then run npm start.
+3. In another terminal, cd into frontend directory. First run npm install, then run npm start.
+4. The server will run on http://localhost:5001 by default. You can change the port number in .env file, if needed.  
+5. The client-side app will run on http://localhost:3000. If port 3000 is already in use, it will prompt you to connect to another port. Simply type y.
 
 #### Running test locally
 The test infrastructure for the web application is set up using mocha and chai. The tests files are in the directory /test.
@@ -21,14 +22,17 @@ To run the tests, you should be in the root directory. Run npm test. Below shuol
 Right now there are two tests. Both of them are integration tests that test whether the connections between the frontend and backend. but since the test infrastructure is already set up, it is easy to add more tests by adding test files into the test folder. Everytime, to run test, we just need to simply call npm test in the root directory. Since we have already set up automated deployment, to automate the test, we can set up a pipeline to automatically run the tests before every build. 
 
 ### Deployment
-The backend is deployed using heroku on another repository with automatic deployment when merged or pushed to main.
+We deployed the backend and frontend separately.
+The backend is deployed using heroku on another repository with automatic deployment when merged or pushed to main. (https://github.com/Zheng-Duan/Zheng-Duan-a-2-shihhu0a0-zheng-duan-server)
 ![automatic deploy](https://user-images.githubusercontent.com/79493876/196076008-4a4035ac-031e-4d80-b5c5-14259a125234.jpeg)
-The frontend is deployed using netlify on another repository with automatic deployment when merged or pushed to main.
+The frontend is deployed using netlify on another repository with automatic deployment when merged or pushed to main. (https://github.com/Zheng-Duan/a-2-shihhu0a0-zheng-duan-client)
 
 ### External resources and code usage
-The frontend follows a similar infrastructure and a similar UI design as the project in this github repo: https://github.com/piyush-eon/React-shopping-cart-context-with-reducer
+We watched online tutorial at https://www.youtube.com/watch?v=HptuMAUaNGk&t=3076s and its corresponding repo https://github.com/piyush-eon/React-shopping-cart-context-with-reducer as a reference of our frontend infrastructure and UI. 
 
-The backend follows a similar instrastructure to connect to MongoDB and create APIs for communicating with the frontend as the project in this github repo: https://github.com/beaucarnes/restaurant-reviews
+We watched online tutorial at https://www.youtube.com/watch?v=mrHNSanmqQ4&t=6305s and its corresponding repo https://github.com/beaucarnes/restaurant-reviews as a reference of our MongoDB atlas setup and the review feature.
+
+We watched online tutorial at https://www.youtube.com/watch?v=I7EDAR2GRVo for overall MERN stack infrastructure and backend frontend connection.
 
 Added Features:
 - calculate total price based on currency and tax
