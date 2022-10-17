@@ -18,7 +18,7 @@ The test infrastructure for the web application is set up using mocha and chai. 
 To run the tests, you should be in the root directory. Run npm test. Below shuold be the results you'll see.
 ![npm test results](https://user-images.githubusercontent.com/79493876/196078658-e3956099-a342-4311-b95c-6dfd1a5298f1.png)
 
-Right now there are two tests. Both of them are integration tests that test whether the connections between the frontend and backend. but since the test infrastructure is already set up, it is easy to add more tests by adding test files into the test folder. Everytime, to run test, we just need to simply call npm test in the root directory.
+Right now there are two tests. Both of them are integration tests that test whether the connections between the frontend and backend. but since the test infrastructure is already set up, it is easy to add more tests by adding test files into the test folder. Everytime, to run test, we just need to simply call npm test in the root directory. Since we have already set up automated deployment, to automate the test, we can set up a pipeline to automatically run the tests before every build. 
 
 ### Deployment
 The backend is deployed using heroku on another repository with automatic deployment when merged or pushed to main.
