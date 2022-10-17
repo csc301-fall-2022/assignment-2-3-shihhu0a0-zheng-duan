@@ -5,6 +5,7 @@ https://thriving-baklava-1e7330.netlify.app/
 
 ### Application walkthrough video
 
+https://user-images.githubusercontent.com/79493876/196084242-28f915d3-5537-4b5b-bb0d-e11a81f736bd.mp4
 
 ### Setting up a local copy of the application
 1. git clone the repo.
