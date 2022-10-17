@@ -1,5 +1,5 @@
 # assignment-2-3-shihhu0a0-zheng-duan
-## Instructions for the application
+## Instructions to view the application
 ### URL of deployed application
 https://thriving-baklava-1e7330.netlify.app/
 
@@ -23,6 +23,7 @@ Right now there are two tests. Both of them are integration tests that test whet
 
 ### Deployment
 We deployed the backend and frontend separately.
+
 The backend is deployed using heroku on another repository with automatic deployment when merged or pushed to main. (https://github.com/Zheng-Duan/Zheng-Duan-a-2-shihhu0a0-zheng-duan-server)
 ![automatic deploy](https://user-images.githubusercontent.com/79493876/196076008-4a4035ac-031e-4d80-b5c5-14259a125234.jpeg)
 The frontend is deployed using netlify on another repository with automatic deployment when merged or pushed to main. (https://github.com/Zheng-Duan/a-2-shihhu0a0-zheng-duan-client)
@@ -35,19 +36,22 @@ We watched online tutorial at https://www.youtube.com/watch?v=mrHNSanmqQ4&t=6305
 We watched online tutorial at https://www.youtube.com/watch?v=I7EDAR2GRVo for overall MERN stack infrastructure and backend frontend connection.
 
 Added Features:
-- calculate total price based on currency and tax
+- calculate total price based on selected currencies and tax ratios
+- filter products by attributes
 - user sign-up and login
-- light and dark theme
-- add and view reviews
+- light and dark theme (I forgot to demo it in the walkthrough video. It's the switch button in the top left corner)
+- add/delete reviews
 - save and load
 
 ## Report
 
 ### Web or mobile application
-We chose to build a web application because both of us have no experience with building a mobile application but we already have some basic knowledge around web development frontend and backend technologies such as HTML, CSS and JavaScript. 
+We chose to build a web application as a preparation for our project: also a web application. Besides both of us have no experience with building a mobile application but we already have some basic knowledge around web development frontend and backend technologies such as HTML, CSS and JavaScript. 
+
+For the following tech stack choices, we not only considered the pros and cons of the technologies but also considered how much they fit our project.
 
 ### Frontend
-For a web application, the frontend is usually built using HTML, CSS and JavaScript. C++ can also be used but its advatage is on system programming, which is not a focus of our application. We decided to look for different JavaScript framework options, which have pre-built structure and library, to save us some development time. Some of the popular options are React, Vue, and Angular, which we are going to compare below.
+For a web application, the frontend is usually built using HTML, CSS and JavaScript. C++ can also be used but its advatage is on system programming, which is not a focus of our application. We decided to look for different JavaScript framework options, which have pre-built structure and library, to save us some development time. Popular options are React, Vue, and Angular, which we are going to compare below.
 - React
     - pros: 
         - easier to learn compared to Angular
@@ -60,6 +64,7 @@ For a web application, the frontend is usually built using HTML, CSS and JavaScr
     - pros: 
         - better for complicated applications and enterprise-ready
         - larger library
+        - our project partner prefers angular
     - cons: 
         - Typescript-based, which we are not familiared with yet
         - steepest learning curve
@@ -68,6 +73,7 @@ For a web application, the frontend is usually built using HTML, CSS and JavaScr
         - easiest to learn among all
         - offcial libraries include routing and state components
         - highly flexible
+        - vue is the most popular js framework in China, and I am from China :)
     - cons: 
         - smaller ecosystem compared to React 
 
@@ -75,14 +81,17 @@ We eliminated Angular first. First, we have no exprience with Angular and TypeSc
 
 It is hard to choose between React and Vue. Both are lightweight and suitable for a simple application. Both can be integrated with Node.js and MongoDB as a tech stack, referred as MERN stack with React as frontend and MEVN with Vue as frontend. However, when researching online resources for both of these tech stacks, there are much more resources and supports available for MERN stack than MEVN so we decided to choose React as our frontend.
 
+Note that react also works with typescript well, and I agree typescript is the future, and in fact, our group chose typescript for the project. However we only have 2 weeks for this assignment, so we finally picked javascript over typescript since typescript is new to us, and we prefer to spend more on functionalities. 
+
 ### Backend
-There are lots of options for the backend. We are both most familar with Python, have some experience with Java and some basic knowledge of JavaScript, so we narrowed down our options to Node JS with Express framework, Django and Java. 
+There are too many options for the backend. We are both most familar with Python, have some experience with Java and some basic knowledge of JavaScript, so we narrowed down our options to Node JS with Express framework, Django and Java. 
 - Node.js + Express.js
     - pros:
         - rich ecosystem 
         - same syntax as React
         - microservices architecture allows us to easily make adjustions to the features we want 
         - easier to build APIs to communicate with NoSQL database
+        - my team's choice for the project
     - cons:
         -  low perforamance in heavy computation tasks
         -  since it is open srouce, some of the tools may be immature
@@ -91,6 +100,7 @@ There are lots of options for the backend. We are both most familar with Python,
         - rich libraries that can make web development faster and easier 
         - good community with thorough documentations
         - high flexibility
+        - it is in the scope of CSC309 
     - cons:
         - monolithic
         - unable to handle multiple requests simultaneously
@@ -98,19 +108,23 @@ There are lots of options for the backend. We are both most familar with Python,
     - pros:
         - supports multithreading 
         - memory management
+        - both of us learned it in CSC207
     - cons: 
         - slightly longer to develope due to its regid definitions
 
 Since we already decided to use MERN stack as our tech stack, Node.js is the only part that is not replaceable. Therefore, it is a clear choice that we are choosing Node.js with Express.js framework for our backend.
 
 ### Database
-Because we wanted to add the functionality of login feature, we need a database to store user data. Since we are using Node.js as our backend. A NoSQL database will make it easier for us to store and manipulate JSON files. Since JSON data can easily flow from the frontend to backend, the development process is faster and easier to debug. We look at different options of NoSQL database.
+We want a database to store products' attributes and user info for the login feature, so I think we would better use a document-based non-relational database, also called an object-based system. This is the reason we eliminated MySQL/postgreSQL at the beginning: MySQL is a table-based system (or open-source relational database).
+
 - MongoDB
     - pros:
         - platform-agnostic
         - users have high control of database
         - support document size up to 16MB
         - schema-free 
+        - MongoDB integrates well with Node. js, making it easier to store, represent, and manipulate JSON data in web apps.
+        - my team's choice for the project
     - cons:
         - increased complexity due to mandatory user infrastructure and configuration management
 - CouchDB
@@ -130,4 +144,4 @@ Because we wanted to add the functionality of login feature, we need a database 
 As we've already chosen to use the MERN stack, we were looking at other options to see if they are better so we can replace MongoDB with that database. After doing the comparisons, we didn't see any high advantages of using other NoSQL database over MongoDB, so we decided to use MongoDB as our database.
 
 ### Conclusion
-The decision of which tech stack to use were made together looking at frontend, backend and database. The MERN stack (MongoDB, Express.js, React, Node.js) is a popular tech stack with many online resources available. Both frontend and backend are JavaScript based so we only need to get familiar with one programming language. In additionm it provides an end-to-end full stack development environment. There are also testing tools avialable for this stack such as Jest and Mocha. Using this tech stack, we also only need to get more familiar with JavaScript instead of working on multiple languages. There are also a lot of online tutorials regarding building a full-stack app using MERN stack, making finding solutions to issues easier. 
+The decision of which tech stack to use were made together looking at frontend, backend and database. The MERN stack (MongoDB, Express.js, React, Node.js) is a popular tech stack with many online resources available. In additionm it provides an end-to-end full stack development environment. Every line of code in mern full-stack development is written in JavaScript, developers can easily integrate and work with various frameworks, whether for the client-side or server-side. There are also testing tools avialable for this stack such as Jest and Mocha. Using this tech stack, we also only need to get more familiar with JavaScript instead of working on multiple languages. There are also a lot of online tutorials regarding building a full-stack app using MERN stack, making finding solutions to issues easier. 
