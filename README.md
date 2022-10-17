@@ -36,10 +36,10 @@ We watched online tutorial at https://www.youtube.com/watch?v=mrHNSanmqQ4&t=6305
 We watched online tutorial at https://www.youtube.com/watch?v=I7EDAR2GRVo for overall MERN stack infrastructure and backend frontend connection.
 
 Added Features:
-- calculate total price based on selected currencies and tax ratios
+- calculate total price based on selected currencies and tax ratios (this step is done in the backend, as required)
 - filter products by attributes
 - user sign-up and login
-- light and dark theme (I forgot to demo it in the walkthrough video. It's the switch button in the top left corner)
+- light and dark theme (I forgot to demo it in the walkthrough video. It's the switch button in the top right corner)
 - add/delete reviews
 - save and load
 
@@ -115,7 +115,7 @@ There are too many options for the backend. We are both most familar with Python
 Since we already decided to use MERN stack as our tech stack, Node.js is the only part that is not replaceable. Therefore, it is a clear choice that we are choosing Node.js with Express.js framework for our backend.
 
 ### Database
-We want a database to store products' attributes and user info for the login feature, so I think we would better use a document-based non-relational database, also called an object-based system. This is the reason we eliminated MySQL/postgreSQL at the beginning: MySQL is a table-based system (or open-source relational database).
+We want a database to store products' attributes and user info for the login feature, so I think we would better use a document-based non-relational database, also called an object-based system. This is the reason we eliminated MySQL/postgreSQL at the beginning:  SQL is a table-based system (or open-source relational database).
 
 - MongoDB
     - pros:
